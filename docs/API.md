@@ -1,5 +1,7 @@
 # Nullwire API
 
+Start with the dedicated [`Window Guide`](Window.md) for library loading and window setup, then use the [`Tab Guide`](Tab.md) for navigation, sections, and control organization.
+
 ## Construction
 
 ```lua

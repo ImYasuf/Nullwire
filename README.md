@@ -65,6 +65,10 @@ Settings:CreateButton({
 })
 ```
 
+## Guides
+
+For the complete top-level setup flow, read the dedicated [`Window Guide`](docs/Window.md). For navigation, sections, and organizing controls, read the dedicated [`Tab Guide`](docs/Tab.md).
+
 ## Components
 
 Every component returns a small item object with `Frame`, `Control` where applicable, and `Value` for stateful controls. Callbacks are invoked asynchronously and receive the new value where appropriate.
@@ -167,6 +171,8 @@ print(Window:GetFlag("Telemetry"))
 This separation keeps the library independent from executor-specific filesystem APIs and from any particular persistence provider.
 
 ## API reference
+
+The API reference is supplemented by the dedicated [`Window Guide`](docs/Window.md) and [`Tab Guide`](docs/Tab.md), which explain the hierarchy and setup flow before introducing individual controls.
 
 | Method | Purpose |
 |---|---|
