@@ -1,6 +1,6 @@
-local Nullwire = require(path.to.Nullwire)
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ImYasuf/Nullwire/master/Library.lua"))()
 
-local Window = Nullwire:CreateWindow({
+local Window = Library:CreateWindow({
     Title = "Nullwire / Operations",
     Subtitle = "Premium runtime UI",
     Theme = "Black",

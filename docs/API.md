@@ -3,7 +3,7 @@
 ## Construction
 
 ```lua
-local Library = require(path.to.Nullwire)
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ImYasuf/Nullwire/master/Library.lua"))()
 local Window = Library:CreateWindow({
     Title = "My Window",
     Subtitle = "My Script",
@@ -47,4 +47,4 @@ section:CreateButton({ Name = "Apply", Callback = function() end })
 
 ## Runtime contract
 
-The host must provide Roblox-compatible constructors and services. The module avoids Studio plugins, asset pipelines, filesystem calls, and third-party modules. Persistence is deliberately left to the host so the library can run in environments with different storage policies.
+The host must provide Roblox-compatible constructors and services. The single file avoids Studio plugins, asset pipelines, filesystem calls, and third-party modules. Fetching the raw file and evaluating it returns the Library object directly; no `require`, ModuleScript, or project file path is involved. Persistence is deliberately left to the host so the library can run in environments with different storage policies.

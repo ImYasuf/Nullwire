@@ -10,7 +10,7 @@ The original shortlist considered for this project was **Nullwire**, **Blackglas
 
 ## Why Nullwire
 
-Nullwire combines a focused black/charcoal visual system with restrained neon accents, responsive layout primitives, and a beginner-friendly component API. The library is delivered as a standalone ModuleScript and only relies on runtime-provided Roblox-compatible services such as `Instance`, `Color3`, `UDim2`, `TweenService`, `UserInputService`, `CoreGui`, and `HttpService`.
+Nullwire combines a focused black/charcoal visual system with restrained neon accents, responsive layout primitives, and a beginner-friendly component API. The library is delivered as one self-contained root-level `Library.lua` file and only relies on runtime-provided Roblox-compatible services such as `Instance`, `Color3`, `UDim2`, `TweenService`, `UserInputService`, `CoreGui`, and `HttpService`.
 
 ## Features
 
@@ -25,14 +25,20 @@ Nullwire combines a focused black/charcoal visual system with restrained neon ac
 
 ## Installation
 
-Copy `src/Library.lua` into a ModuleScript named `Nullwire` in the runtime's supported module location. If your environment supports repository imports, clone this repository and use the file directly. `src/Themes/Presets.lua` is an optional reference module containing the public preset values.
+Fetch the root-level source from GitHub and execute it directly. The returned value is the Nullwire Library object; no ModuleScript, `require()`, project insertion, or internal file path is needed.
+
+```lua
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ImYasuf/Nullwire/master/Library.lua"))()
+```
+
+The `src/` directory contains the maintained source layout and preset reference for contributors. End users should use the root `Library.lua` distribution file.
 
 ## Quick start
 
 ```lua
-local Nullwire = require(path.to.Nullwire)
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ImYasuf/Nullwire/master/Library.lua"))()
 
-local Window = Nullwire:CreateWindow({
+local Window = Library:CreateWindow({
     Title = "Control Center",
     Subtitle = "Nullwire demo",
     Theme = "Black",
@@ -54,7 +60,7 @@ Settings:CreateButton({
     Name = "Run diagnostics",
     ButtonText = "RUN",
     Callback = function()
-        Window:Notify({ Title = "Diagnostics", Content = "All systems nominal.", Duration = 4 })
+        Library:Notify({ Title = "Diagnostics", Content = "All systems nominal.", Duration = 4 })
     end,
 })
 ```
@@ -134,7 +140,7 @@ Window:Notify({
 Choose `Dark`, `Black`, or `Cyber` at creation time. Custom values can be passed as `ThemeData`, or applied later with `SetTheme`.
 
 ```lua
-local Window = Nullwire:CreateWindow({ Theme = "Cyber" })
+local Window = Library:CreateWindow({ Theme = "Cyber" })
 Window:SetTheme({
     Accent = Color3.fromRGB(0, 255, 210),
     Radius = 14,
@@ -164,7 +170,7 @@ This separation keeps the library independent from executor-specific filesystem 
 
 | Method | Purpose |
 |---|---|
-| `Nullwire:CreateWindow(options)` | Creates a window and animated loading screen. Options include `Title`, `Subtitle`, `Theme`, `ThemeData`, `Width`, `Height`, and `LoadingDuration`. |
+| `Library:CreateWindow(options)` | Creates a window and animated loading screen. Options include `Title`, `Subtitle`, `Theme`, `ThemeData`, `Width`, `Height`, and `LoadingDuration`. |
 | `Window:CreateTab(options)` | Adds a tab. Options include `Name` and optional `Icon`. |
 | `Tab:CreateSection(options)` | Adds a section and returns a section-scoped component creator. |
 | `Window:Notify(options)` | Adds an animated notification. Supports `Title`, `Content`, `Icon`, `Duration`, and `Type`. |
@@ -176,7 +182,7 @@ This separation keeps the library independent from executor-specific filesystem 
 
 ## Full example
 
-See [`examples/Example.lua`](examples/Example.lua) for a runnable demonstration of all supported components and configuration hooks.
+See [`examples/Example.lua`](examples/Example.lua) for a runnable loadstring demonstration of all supported components and configuration hooks.
 
 ## Troubleshooting
 
