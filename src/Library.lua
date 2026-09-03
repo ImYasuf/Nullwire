@@ -71,7 +71,9 @@ function Nullwire.new(options)
     self._config = {}
     self:_buildLoading()
     Nullwire._activeWindow = self
-    task.delay(options.LoadingDuration or 0.65, function() self:_buildWindow(options) end)
+    -- Build the interactive window before returning so CreateTab() is immediately safe.
+    -- The loading screen remains an independent visual animation and never gates initialization.
+    self:_buildWindow(options)
     return self
 end
 

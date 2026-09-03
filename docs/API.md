@@ -14,7 +14,7 @@ local Window = Library:CreateWindow({
 })
 ```
 
-`CreateWindow` returns a window object. The loading screen is created immediately and the main window is built after the configured loading duration.
+`CreateWindow` returns a fully initialized window object. The loading screen is created and animated independently; the main frame, navigation container, and content container are all ready before the call returns, so `Window:CreateTab(...)` is safe immediately.
 
 ## Hierarchy
 
