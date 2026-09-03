@@ -1,4 +1,4 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ImYasuf/Nullwire/master/Library.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ImYasuf/Nullwire/refs/heads/master/Library.lua"))()
 
 local Window = Library:CreateWindow({
     Title = "Nullwire / Operations",

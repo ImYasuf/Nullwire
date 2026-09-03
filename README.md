@@ -28,7 +28,7 @@ Nullwire combines a focused black/charcoal visual system with restrained neon ac
 Fetch the root-level source from GitHub and execute it directly. The returned value is the Nullwire Library object; no ModuleScript, `require()`, project insertion, or internal file path is needed.
 
 ```lua
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ImYasuf/Nullwire/master/Library.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ImYasuf/Nullwire/refs/heads/master/Library.lua"))()
 ```
 
 The `src/` directory contains the maintained source layout and preset reference for contributors. End users should use the root `Library.lua` distribution file.
@@ -36,7 +36,7 @@ The `src/` directory contains the maintained source layout and preset reference 
 ## Quick start
 
 ```lua
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ImYasuf/Nullwire/master/Library.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ImYasuf/Nullwire/refs/heads/master/Library.lua"))()
 
 local Window = Library:CreateWindow({
     Title = "Control Center",
